@@ -315,3 +315,96 @@ html {
   display: flex;
   justify-content: space-between;
 }
+
+
+
+
+/* Mobile Responsiveness for Tablets */
+@media (max-width: 768px) {
+  .college-container {
+    grid-template-columns: 1fr;
+    margin: 20px;
+    
+  }
+
+  #search-bar {
+    width: 80%;
+  }
+
+  .events {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Additional Mobile Responsiveness for Phones */
+@media (max-width: 480px) {
+  /* Adjust header layout */
+  #header {
+    gap: 0px;
+    align-items: center;
+  }
+  #logout{
+    width: 470px;
+    margin-left: 0px;
+  }
+  
+
+  /* Search Bar Adjustments */
+  #search-bar {
+    width: 60%;
+    padding: 10px;
+    
+    font-size: 16px;
+  }
+
+  /* Logout Button Adjustments */
+  #logout {
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+
+  /* College Section Adjustments */
+  .college-container {
+    margin: 15px;
+  }
+
+  .college-name {
+    font-size: 24px;
+  }
+
+  /* Event Section Adjustments */
+  .events {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .event {
+    height: auto;
+    padding: 15px;
+  }
+
+  .event img {
+    height: auto;
+  }
+
+  .event h3 {
+    font-size: 18px;
+  }
+
+  .event p {
+    font-size: 14px;
+  }
+
+  /* Button Adjustments */
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .event-buttons {
+    bottom: 10px;
+  }
+}
