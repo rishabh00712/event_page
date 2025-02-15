@@ -95,7 +95,23 @@ app.get("/get", async (req, res) => {
     }
 });
 
+const PING_URL = "https://event-page-1ppx.onrender.com/"; // Replace with your actual website URL
+
+// Function to keep the server alive
+const keepAlive = async () => {
+    try {
+      await axios.get(PING_URL);
+      console.log("Pinged successfully!");
+    } catch (error) {
+      console.error("Ping failed:", error.message);
+    }
+  };
+  const port=5055;
+  // Ping the server every 10 minutes
+  setInterval(keepAlive, 1000*60*5);
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
+    keepAlive();
 });
