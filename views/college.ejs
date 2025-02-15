@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Event Display</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/common.css">
+    <!-- public/index.html -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="header">
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search for a college...">
+        </div>
+        <button id="logout">Log out</button>
+    </div>
+    
+
+    <% 
+        const colleges = [
+    {
+        name: "IIEST Shibpur",
+        events: [
+            { 
+                img: "./metallum.jpg", 
+                title: "Metallum", 
+                desc: "Metallum is the annual tech fest of the Society of Student Metallurgists, IIEST Shibpur", 
+                date: "2025-02-13 to 2025-02-15", 
+                url: "https://metallum.co.in/",
+                tags: ["Tech", "Engineering", "Annual"]
+            },
+            { 
+                img: "./revelation.jpg", 
+                title: "Revelation", 
+                desc: "Revelation is the annual tech fest of ASCE, IIEST Shibpur, featuring competitions", 
+                date: "2025-03-23 to 2025-03-25", 
+                url: "https://unstop.com/college-fests/revelation-24-indian-institute-of-engineering-science-and-technology-iiest-shibpur-234957",
+                tags: ["Innovation", "Competitions"]
+            },
+            { 
+                img: "./wolfame2.jpg", 
+                title: "Wolfame", 
+                desc: "Wolfame is the annual sports and cultural fest of Wolfenden Hall, IIEST Shibpur", 
+                date: "2025-03-17 to 2025-03-19", 
+                url: "https://wolfame.in/",
+                tags: ["Sports", "Culture"]
+            },
+            { 
+                img: "./Abhiyantrix.webp", 
+                title: "Abhiyantrix", 
+                desc: "Abhiyantrix is the annual tech fest of the Aerospace Engineers' Society", 
+                date: "2025-03-23 to 2025-03-25", 
+                url: "https://www.abhiyantrix.space/",
+                tags: ["Aerospace", "Tech"]
+            },
+            { 
+                img: "./rebeca2.jpg", 
+                title: "REBECA", 
+                desc: "The 84rd edition of REBECA was held in 2025.", 
+                date: "2025-04-08 to 2025-04-12", 
+                url: "https://rebeca.in/",
+                tags: ["Annual", "Tech"]
+            }
+        ]
+    },
+//    
+{
+    "name": "IIT Bhubaneswar",
+    "events": [
+      {
+        "img": "./rdpr.jpg",
+        "title": "Faculty Development Program",
+        "desc": "Faculty Development Program on Recent Trends and AI",
+        "date": "2025-02-15 to 2025-02-15",
+        "url": "https://www.iitbbs.ac.in/index.php/faculty-development-program-on-recent-trends-and-applications-in-artificial-intelligence-from-11-15-december-2025/",
+        "tags": ["food", "title", "tech"]
+      },
+      {
+        "img": "./NWSGT-2025-1.png",
+        "title": "4th National Workshop on Recent Developments",
+        "desc": "Smart Grid Technologies- NWSGT-2025",
+        "date": "2025-03-07 to 2025-03-08",
+        "url": "https://www.iitbbs.ac.in/index.php/4th-national-workshop-on-recent-developments-in-smart-grid-technologies-nwsgt-2025-from-07-08-march-2025/",
+        "tags": ["food", "title", "tech"]
+      },
+      {
+        "img": "./energy.jpg",
+        "title": "Conference on Sustainable Energy",
+        "desc": "2nd International Conference on Sustainable EE",
+        "date": "2025-03-29 to 2025-03-29",
+        "url": "https://www.iitbbs.ac.in/index.php/2nd-international-conference-on-sustainable-energy-economics-in-the-asia-pacific-region-on-29-march-2025/",
+        "tags": ["food", "title", "tech"]
+      },
+      {
+        "img": "./microwabe.jpg",
+        "title": "International Conference on Microwave",
+        "desc": "The 3rd International Conference on Microwave",
+        "date": "2025-05-23 to 2025-05-25",
+        "url": "https://conference.iitbbs.ac.in/icmoce2025/",
+        "tags": ["food", "title", "tech"]
+      }
+    ]
+  },
+  {
+    "name": "IIT Kharagpur",
+    "events": [
+      {
+        "img": "./spring-fest.jpg",
+        "title": "Spring Fest",
+        "desc": "Annual Social and Cultural Fest, IIT Kharagpur, West Bengal",
+        "date": "2025-01-24 to 2025-01-26",
+        "url": "https://www.knowafest.com/explore/events/2024/12/1913-spring-fest-2025-iit-kharagpur-annual-social-cultural",
+        "tags": ["food", "title", "tech"]
+      },
+      {
+        "img": "./kshitij.webp",
+        "title": "Kshitij",
+        "desc": "With over 40 events, encompassing varied fields of science, technology and management, Kshitij",
+        "date": "2025-04-07 to 2025-04-11",
+        "url": "https://ktj.in/",
+        "tags": ["food", "title", "tech"]
+      }
+    ]
+  },
+  {
+    "name": "NIT Durgapur",
+    "events": [
+      {
+        "img": "./dur-ev1.jpg",
+        "title": " STEEL DESIGN AND CONSTRUCTION",
+        "desc": "Seminar on modern trends in steel design",
+        "date": "2025-02-11 to 2025-02-11",
+        "url": "https://nitdgp.ac.in/p/events-1",
+        "tags": ["food", "title", "tech"]
+      },
+      {
+        "img": "./thumb_300_450.png",
+        "title": "Mineral Scholar Network Program",
+        "desc": "IAMSN presents a five-day STC on minerals",
+        "date": "2025-02-14 to 2025-02-18",
+        "url": "https://nitdgp.ac.in/p/events-1",
+        "tags": ["food", "title", "tech"]
+      }
+    ]
+  },
+  {
+    "name": "IIT KANPUR",
+    "events": [
+      {
+        "img": "./antaragni.jpg",
+        "title": "Antaragni",
+        "desc": "Antaragni, IIT Kanpur’s annual cultural festival, is a four-day event held in October",
+        "date": "2025-10-11 to 2025-10-14",
+        "url": "https://antaragni.in/",
+        "tags": ["food", "title"]
+      }
+    ]
+  }
+
+];
+
+    %>
+<div class="college-container" id="colleges">
+    <% colleges.forEach(college => { %>
+        <div class="college-section">
+            <h2 class="college-name"><%= college.name %></h2>
+            <div class="events">
+                <% college.events.forEach(event => { %>
+                    <div class="event lazy">
+                        <img src="<%= event.img %>" alt="<%= event.title %>">
+                        <div id="tags">
+                            <h3><%= event.title %></h3>
+                            <!-- Tags Section -->
+                            <% if (event.tags && event.tags.length > 0) { %>
+                                <div class="event-tags">
+                                    <% event.tags.forEach(tag => { %>
+                                        <span class="tag"><%= tag %></span>
+                                    <% }); %>
+                                </div>
+                                <% } %>
+                        </div>
+                        
+                        <p class="event-date"><%= event.date %></p> <!-- Date Section -->
+                        <p class="event-des"><%= event.desc %></p>
+                        
+                        
+                        
+                        <div class="event-buttons">
+                            <a href="/contact/<%= event.title + '&' + college.name + '&' + event.date %>">
+                                <button style="width: 130px;">Contact Us</button>
+                            </a>                            
+                            <button onclick="window.open('<%= event.url %>', '_blank')">Details</button>
+                            <button onclick="shareContent('<%= college.name %>', '<%= event.title %>', '<%= event.date %>', '<%= event.desc %>', '<%= event.url %>')">Share</button>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+
+
+</body>
+</html>
+
+
+<script src="java_core/event.js"></script>

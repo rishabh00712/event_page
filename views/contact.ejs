@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collaboration Form with Floating Labels</title>
+  <link rel="stylesheet" href="/styles/contact.css">
+  <!-- public/index.html -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="form-container">
+    <h1>Collaboration Form</h1>
+    <form action="/send_mail" method="post">
+      <!-- Event Details (Read-only) -->
+      <div class="form-group">
+        <input type="text" id="event-details" name="title" value="<%= title %> organized by <%=college%> on <%= date %>" readonly>
+        <label for="event-details">Event Details</label>
+      </div>
+
+      <!-- User's Name -->
+      <div class="form-group">
+        <input type="text" id="user-name" name="name" placeholder=" " required>
+        <label for="user-name">Your Name</label>
+      </div>
+
+      <!-- User's Name -->
+      <div class="form-group">
+        <input type="text" id="user-name" name="contact" placeholder=" " required>
+        <label for="user-name">Enter Your Contact Details</label>
+      </div>
+
+
+      <!-- About You/Your Company -->
+      <div class="form-group">
+        <input type="text" id="about" name="company" placeholder=" " required>
+        <label for="about">About You/Your Company</label>
+      </div>
+
+      <!-- Collaboration Description -->
+      <div class="form-group">
+        <textarea id="collaboration" name="collaboration" placeholder=" " required></textarea>
+        <label for="collaboration">How do you want to collaborate?</label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // JavaScript to ensure labels behave correctly for readonly fields
+    document.querySelectorAll('.form-group input[readonly]').forEach(input => {
+      input.nextElementSibling.style.top = '-0.5rem';
+      input.nextElementSibling.style.fontSize = '0.8rem';
+      input.nextElementSibling.style.color = '#ff6f61';
+      input.nextElementSibling.style.backgroundColor = '#2c2c2c';
+    });
+  </script>
+</body>
+</html>
